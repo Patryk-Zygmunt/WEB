@@ -1,0 +1,160 @@
+html, body {
+    height: 100%;
+    font-size: 10px;
+   
+}
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+.height100{
+    height:100%;
+}
+ 
+@media all and (max-width:990px) {
+     html,body {
+   font-size: 7px;
+  }
+    color-strips{
+        display:none;
+}
+    .strip{
+       display:none;
+}
+    .menu-sticky{
+        display: none;
+   
+    }}
+@media all and (max-width:800px) {
+  html,body {
+   font-size: 6px;
+  }
+   
+}
+ 
+@media all and (max-width:400px) {
+  html,body {
+   font-size: 2px;
+        }  
+}
+h2{
+  font-size: 2.2em;  
+}
+h1{
+  font-size: 2.8em;  
+}
+ 
+a{
+    text-decoration: none;
+    color: aliceblue;
+}
+.color-strips{
+   
+    height:5%;
+}
+.strips-up{
+     height:7%;
+}
+ .strip{
+min-height: 100%;    
+}
+ 
+.logo-name{
+ 
+     color: darkorchid;
+      background-color: whitesmoke;
+    min-height:100%;
+    text-align: center;
+   
+}
+.mybutton{
+    padding-top:1em;
+    height:100%;
+     background-color: dimgrey;
+    box-sizing:border-box;
+}
+ 
+#background-header{
+    min-height: 80%;
+    
+    background-image:url(logo.jpg);
+background-repeat:no-repeat;
+-webkit-background-size:cover;
+-moz-background-size:cover;
+-o-background-size:cover;
+background-size:cover;
+background-position:center;
+}
+.mybutton:hover{
+background-color: black;
+}
+ 
+.menu{
+    font-size: 1.6em;
+    color:aliceblue;
+    min-height: 8%;
+  
+    background-color: dimgrey;
+    font-family: "Arial Black";
+    text-align: center;}
+ 
+ 
+.menu-non-sticky{}
+ 
+.menu-sticky{
+    
+    padding:1em 0 1em 0;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 100;
+}
+.adventage-main{
+    border-top: solid dimgrey 2px;  
+       
+        color:aliceblue;
+    font-size: 2.4em;
+    height:85%;      
+    }
+ 
+.adventage-header{
+    padding-top: 2%;
+     border-bottom: solid dimgrey 2px;
+     height:20%;
+   
+}
+ 
+.adventage-content{
+       
+         height:80%;  
+         padding:1% 12% 3% 12%;  
+   
+}
+ 
+#healthy{
+     background-color: darkcyan;
+}
+#experience{
+    background-color: #00e673;
+}
+#lose-weight{
+    background-color: #ff80bf;
+}
+#add-muscle{
+    background-color: #0f4d8a;
+}
+#stay-alert{
+    background-color: cadetblue;
+}
+#why-sign{
+    padding-right: 3%;
+}
+ 
+#footer{
+    background-color: black;
+    color:aliceblue;
+    text-align: center;
+    padding: 1% 1% 1% 1%;
+   
+}
