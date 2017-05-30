@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Tworzenie wpisu</title>
+	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+</head>
+<body style="background-color: grey" onload="wstawczas()" >
+
+
+<div id="time"> </div>
+
+
+
+		<div ><form action="wpis.php" method="post" enctype="multipart/form-data" onsubmit="return sprawdz(this)">
+<input type="hidden" name="MAX_FILE_SIZE" value="512000" />
+		
+			Data<br/><input id="d" type="text" name="data" value="<>"  >
+			Godzina<input  id="h" type="text" name="godzina" value="<>" ><br/>
+			<br/>
+			
+			Załączniki:<br/>
+			
+			
+			<input type="file" id="f1" name="zalacznik1"   onclick="newFile(this) "   /><br/>
+              	<div id="plik"></div>
+			<input type="submit" value="Nowy wpis"/><br/>
+			<input type="reset" value="Reset"/>	
+		</form></div>		
+		
+		
+<script type="text/javascript">
+
+function wstawczas(){
+var currentDate = new Date();
+h = currentDate.getHours();
+m = currentDate.getMonth() +1;
+	min = currentDate.getMinutes();
+	d = currentDate.getDate();
+	if (h < 10) { h = "0" + h;} 
+				     
+	if (min< 10) { min = "0" + min; }
+	if (m < 10) { m = "0" + m; }
+	if (d < 10) { d = "0" + d; }
+element=document.getElementById('h');
+data=document.getElementById('d');
+
+ element.value =  h+ ":" + min;
+    data.value =  currentDate.getFullYear()+"-"+ m+ "-"+d ;
+}
+
+  
+ 
+  function sprDate(form){
+            var data = form.data.value;
+
+            var RegDate=/^((?:19|20)\d\d)[- \/.](0[1-9]|1[012])[- \/.](0[1-9]|[12][0-9]|3[01])$/;
+            var wynik =RegDate.test(data)       ;
+            if (wynik == false){
+				return false;
+		}
+else{  
+return true;
+}
+}
+
+function sprCzas(form){
+var czas=form.godzina.value;
+var regex = /^(\d{2}):(\d{2})$/;
+check = czas.match(regex); 
+	 
+		if (check==null) { 
+	
+			return false;
+		}
+		if (check[1] > 23) { 
+	
+			return false;
+		}
+		if (check[2] > 59) {
+		
+			return false;
+		}
+	 
+	
+
+	return true; 
+}
+
+
+function sprawdz(form) {
+	if (!sprCzas(form) && !sprDate(form)) {
+	alert("błedny czas i data");
+	                wstawczas();
+
+	return false;}
+		if (!sprCzas(form)) {
+	alert("błedny czas");
+	                wstawczas();
+
+	return false;}
+		if ( !sprDate(form)) {
+	alert("błedna data");
+	                wstawczas();
+
+	return false;}
+	
+	else
+	
+	return true;
+}
+
+function newFile(form){
+	var file = document.getElementById("plik");
+	number =file.children.length; 
+	files = number ;
+	
+	
+
+	var input = document.createElement("input");
+	input.type = "file"; 
+	input.name = "file" + files; 
+	input.onclick = function() { newFile(this); };  
+	file.appendChild(input); 
+	file.appendChild(document.createElement("br")); 
+
+
+}
+
+
+
+
+      
+ 
+
+
+</script>
+		
+
+</body>
+</html>

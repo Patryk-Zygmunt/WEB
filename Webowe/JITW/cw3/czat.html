@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>czat</title>
+	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+
+<script>
+
+function wyswietl() {
+	window.XMLHttpRequest; 
+	var	xmlhttp=new XMLHttpRequest();
+	xmlhttp.overrideMimeType('text/xml');
+	xmlhttp.onreadystatechange=function() {
+		if ( xmlhttp.status==200) { 
+			if ( document.getElementById("check").checked) { 
+		if (xmlhttp.readyState>2) { 
+						document.getElementById("chat").innerHTML=xmlhttp.responseText;
+
+			xmlhttp.open("GET", "obsluga.php?wart=else", true); 
+			xmlhttp.send();
+		}
+	}	}}
+	xmlhttp.open("GET", "obsluga.php?wart=else", true);
+		xmlhttp.send(); 
+
+}
+function wyslij() {
+	window.XMLHttpRequest;
+var xmlhttp=new XMLHttpRequest();
+xmlhttp.overrideMimeType('text/xml');
+	var nick = document.getElementById("nick").value; 
+	var wiadomosc = document.getElementById("wiadomosc").value; 
+
+	xmlhttp.open("GET", "obsluga.php?wart=wyslij&nick="+nick+"&wiadomosc="+wiadomosc, true); 
+	xmlhttp.send();
+
+	document.getElementById("wiadomosc").value = ""; 
+}
+</script>
+
+</head>
+<body style="background-color:#a251ff;">
+<input type="hidden" name="wart" value="">
+ Nick: <input type="text" name="nick" id="nick" />>>
+   <input type="text" name="wiadomosc" id="wiadomosc" /><br/><br/>
+<button type="button" value="Wyślij" onclick="wyslij()">Wyślij</button>
+<textarea rows="20" cols="50" id="chat" style="background: #666; color:white" ></textarea>
+<input type="checkbox" name="check" id="check" onchange="wyswietl()"/>WŁĄCZ<br/>
+
+</body>
+</html>
